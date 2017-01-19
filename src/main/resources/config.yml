@@ -1,0 +1,5 @@
+cacheHost: 127.0.0.1
+cachePort: 6379
+
+swagger:
+  resourcePackage: resource

@@ -1,0 +1,61 @@
+group 'RedisPattern'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'application'
+
+repositories {
+    maven { url "https://plugins.gradle.org/m2/" }
+    flatDir {
+        dirs '$projectDir/build/generated'
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
+    }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+
+    def dropwizardVersion = '1.0.2'
+    compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
+    // https://mvnrepository.com/artifact/com.bendb.dropwizard/dropwizard-redis
+    compile group: 'com.bendb.dropwizard', name: 'dropwizard-redis', version: '1.0.0-2'
+
+    compile group: 'com.google.inject', name: 'guice', version: '4.1.0'
+    compile group: 'com.smoketurner', name: 'dropwizard-swagger', version: '1.0.0-1'
+
+    compile 'com.google.protobuf:protobuf-java:3.0.0'
+    compile 'io.grpc:grpc-stub:1.0.0-pre2'
+    compile 'io.grpc:grpc-protobuf:1.0.0-pre2'
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+}
+
+mainClassName = 'TutorialApplication'
+run {
+    args 'server', 'config.yml'
+}
+
+protobuf {
+    protoc {
+        // The artifact spec for the Protobuf Compiler
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.0.0-pre2'
+        }
+    }
+
+//    generatedFilesBaseDir = "$projectDir/build/classes"
+
+}

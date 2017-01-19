@@ -1,0 +1,25 @@
+package tutorial;
+
+option java_package = "com.example.tutorial";
+option java_outer_classname = "CartProtos";
+
+message Item {
+    //  make all properties optional
+    optional string name = 1;
+    optional int32 id = 2;
+    optional string brand = 3;
+
+    enum StockTypes {
+        REMOTE = 0;
+        DEMAND = 1;
+        STOCK = 2;
+    }
+
+    message StockType {
+        optional StockTypes type = 1 [default = STOCK];
+    }
+}
+
+message Cart {
+    repeated Item item = 1;
+}
