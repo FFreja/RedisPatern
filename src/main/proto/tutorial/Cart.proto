@@ -15,11 +15,11 @@ message Item {
         STOCK = 2;
     }
 
-    message StockType {
-        optional StockTypes type = 1 [default = STOCK];
-    }
+        optional StockTypes type = 4 [default = STOCK];
 }
 
 message Cart {
-    repeated Item item = 1;
+    optional int32 id = 1;
+    optional string name = 2;
+    repeated Item item = 3;
 }

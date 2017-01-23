@@ -22,22 +22,21 @@ buildscript {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.5'
 
     def dropwizardVersion = '1.0.2'
     compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
-    // https://mvnrepository.com/artifact/com.bendb.dropwizard/dropwizard-redis
-    compile group: 'com.bendb.dropwizard', name: 'dropwizard-redis', version: '1.0.0-2'
+    compile 'biz.paluch.redis:lettuce:4.3.0.Final'
 
     compile group: 'com.google.inject', name: 'guice', version: '4.1.0'
     compile group: 'com.smoketurner', name: 'dropwizard-swagger', version: '1.0.0-1'
 
+
+
     compile 'com.google.protobuf:protobuf-java:3.0.0'
     compile 'io.grpc:grpc-stub:1.0.0-pre2'
     compile 'io.grpc:grpc-protobuf:1.0.0-pre2'
-    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
     testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
-    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
 }
 
 mainClassName = 'TutorialApplication'
@@ -56,6 +55,6 @@ protobuf {
         }
     }
 
-//    generatedFilesBaseDir = "$projectDir/build/classes"
+    generatedFilesBaseDir = "$projectDir/src"
 
 }
