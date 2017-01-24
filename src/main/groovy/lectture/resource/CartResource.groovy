@@ -1,8 +1,7 @@
-package resource
+package lectture.resource
 
-import Provider.CartProvider
-import api.Cart
 import com.google.inject.Inject
+import lectture.Provider.CartLettuceProvider
 
 import javax.ws.rs.POST
 import javax.ws.rs.Produces
@@ -12,11 +11,11 @@ import javax.ws.rs.core.MediaType
 class CartResource {
 
     @Inject
-    CartProvider provider
+    CartLettuceProvider provider
 
     @POST
-    void createCart(Cart cart){
-        provider.save()
+    void createCart(lectture.api.Cart cart){
+        provider.save(cart)
     }
 
 }

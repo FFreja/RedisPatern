@@ -3,10 +3,30 @@ package Provider
 import api.Cart
 import api.Item
 import com.example.tutorial.CartProtos
+import com.lambdaworks.redis.RedisClient
+import com.lambdaworks.redis.RedisFuture
 import spock.lang.Specification
 
 class CartProviderTest extends Specification {
     CartProvider provider = new CartProvider()
+
+    void 'should save cart to redis' () {
+        given:
+        RedisClient client = new RedisClient("127.0.0.1",6379)
+        def cart = new Cart(name:'cart', id:123)
+        provider.save(cart)
+
+
+    }
+
+    void 'should get cart from redis' () {
+        given:
+        RedisClient client = RedisClient.create("redis://localhost")
+        def cart = provider.get("123")
+
+
+
+    }
 
     void 'should add items' () {
         given:

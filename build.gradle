@@ -26,8 +26,14 @@ dependencies {
 
     def dropwizardVersion = '1.0.2'
     compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
-    compile 'biz.paluch.redis:lettuce:4.3.0.Final'
+    // https://mvnrepository.com/artifact/biz.paluch.redis/lettuce
+    compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.3.0.Final'
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+    // https://mvnrepository.com/artifact/com.googlecode.protobuf-java-format/protobuf-java-format
+    compile group: 'com.googlecode.protobuf-java-format', name: 'protobuf-java-format', version: '1.4'
 
+    // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
     compile group: 'com.google.inject', name: 'guice', version: '4.1.0'
     compile group: 'com.smoketurner', name: 'dropwizard-swagger', version: '1.0.0-1'
 

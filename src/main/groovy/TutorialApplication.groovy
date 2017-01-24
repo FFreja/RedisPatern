@@ -1,5 +1,3 @@
-import com.bendb.dropwizard.redis.JedisBundle
-import com.bendb.dropwizard.redis.JedisFactory
 import com.google.inject.Guice
 import com.google.inject.Injector
 import io.dropwizard.Application
@@ -20,7 +18,6 @@ class TutorialApplication extends Application<TutorialConfig>{
     void run(TutorialConfig configuration, Environment environment) throws Exception {
         Injector injector = Guice.createInjector(new TutorialModule(configuration, environment))
         environment.jersey().register(injector.getInstance(CartResource))
-
     }
 
     @Override
@@ -28,13 +25,13 @@ class TutorialApplication extends Application<TutorialConfig>{
 
         bootstrap.setConfigurationSourceProvider(new ResourceConfigurationSourceProvider())
 
-        bootstrap.addBundle(new JedisBundle<TutorialConfig>() {
-            @Override
-            JedisFactory getJedisFactory(TutorialConfig configuration) {
-                return configuration.getJedisFactory()
-            }
-
-        })
+//        bootstrap.addBundle(new JedisBundle<TutorialConfig>() {
+//            @Override
+//            JedisFactory getJedisFactory(TutorialConfig configuration) {
+//                return configuration.getJedisFactory()
+//            }
+//
+//        })
 
         bootstrap.addBundle(new SwaggerBundle<TutorialConfig>() {
             @Override
