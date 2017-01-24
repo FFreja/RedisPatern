@@ -1,0 +1,213 @@
+Lettuce
+"\x1f\x8b\b\x00\x00\x00\x00\x00\x00\x00[\xf3\x96\x81\xb5\xb8\x88A0'5\xb9\xa4\xa4\xb4(U/\xb1 S\xcf9\xb1\xa8\xe4O\xc6\x12\x9f\x1f\xcf\xcd\x9e010{20y\xa6\xf80\xb0f\x96\xa4\xe6\x16\x970\b\xf8d%\x96%\xea\x97\x96d\xe6\xe8\xfbd\x16\x97X\xfb0\xb0\xe4%\xe6\xa6\x960\bAdr\x12\xf3\xd2\xf5\x83K\x8a2\xf3\xd2\xad+\n\x18\x18\x18\xaa\x816\b\x83\xa4\xf4@\x9a\xf4\x1c\x8b\x8a\x12+A:+\x1a/\xc9\xce<\x9e8\x97\x99\x81\xd1\x93\x81\xa58\xb3*\x15\xac\x9c\xa9\x9c\x05Db8\xcb\x13h\xff9V\xa7\xb7\xe1~i\x82L\x0c,@ge\xa6x2p\x16\x97\xe4'g\x87T\x16\xa4\x02\x9d\x98T\x94\x98\x97R\xc8P\xc7\xc0\x04u\x14\x98\r6\xd5\x10\x88\x19J\x18\xd8\xc0J\x0cK\x18XA\xd2\x86\xc5 \x05l@\x19# f\x84I\x1bA\xa5\x8d*J\x18X\x92\x81\xa1\x01\x004m\xcaW'\x01\x00\x00"
+
+
+
+# Server
+redis_version:3.2.5
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:77c508e1636c662c
+redis_mode:standalone
+os:Linux 4.4.0-53-generic x86_64
+arch_bits:64
+multiplexing_api:epoll
+gcc_version:5.4.0
+process_id:26512
+run_id:3f4cc51ad5de8123b0728410aecd6ae9fe209688
+tcp_port:6379
+uptime_in_seconds:12762
+uptime_in_days:0
+hz:10
+lru_clock:8904998
+executable:/opt/app/redis-3.2.5/src/./redis-server
+config_file:
+
+# Clients
+connected_clients:1
+client_longest_output_list:0
+client_biggest_input_buf:0
+blocked_clients:0
+
+# Memory
+used_memory:821544
+used_memory_human:802.29K
+used_memory_rss:9428992
+used_memory_rss_human:8.99M
+used_memory_peak:936256
+used_memory_peak_human:914.31K
+total_system_memory:8279252992
+total_system_memory_human:7.71G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+mem_fragmentation_ratio:11.48
+mem_allocator:jemalloc-4.0.3
+
+# Persistence
+loading:0
+rdb_changes_since_last_save:3
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1485298727
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:0
+rdb_current_bgsave_time_sec:-1
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_last_write_status:ok
+
+# Stats
+total_connections_received:74
+total_commands_processed:65
+instantaneous_ops_per_sec:0
+total_net_input_bytes:2142
+total_net_output_bytes:29896597
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:0
+evicted_keys:0
+keyspace_hits:23
+keyspace_misses:10
+pubsub_channels:0
+pubsub_patterns:0
+latest_fork_usec:3343
+migrate_cached_sockets:0
+
+# Replication
+role:master
+connected_slaves:0
+master_repl_offset:0
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:6.52
+used_cpu_user:2.85
+used_cpu_sys_children:0.00
+used_cpu_user_children:0.00
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=1,expires=0,avg_ttl=0
+
+
+
+Protobuff
+"\b{\x12\x04cart\x1a\x13\n\x05name1\x101\x1a\x06brand1 \x00\x1a\x13\n\x05name2\x102\x1a\x06brand2 \x01"
+# Server
+redis_version:3.2.5
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:77c508e1636c662c
+redis_mode:standalone
+os:Linux 4.4.0-53-generic x86_64
+arch_bits:64
+multiplexing_api:epoll
+gcc_version:5.4.0
+process_id:26512
+run_id:3f4cc51ad5de8123b0728410aecd6ae9fe209688
+tcp_port:6379
+uptime_in_seconds:13981
+uptime_in_days:0
+hz:10
+lru_clock:8906217
+executable:/opt/app/redis-3.2.5/src/./redis-server
+config_file:
+
+# Clients
+connected_clients:1
+client_longest_output_list:0
+client_biggest_input_buf:0
+blocked_clients:0
+
+# Memory
+used_memory:821344
+used_memory_human:802.09K
+used_memory_rss:9428992
+used_memory_rss_human:8.99M
+used_memory_peak:936256
+used_memory_peak_human:914.31K
+total_system_memory:8279252992
+total_system_memory_human:7.71G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+mem_fragmentation_ratio:11.48
+mem_allocator:jemalloc-4.0.3
+
+# Persistence
+loading:0
+rdb_changes_since_last_save:8
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1485298727
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:0
+rdb_current_bgsave_time_sec:-1
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_last_write_status:ok
+
+# Stats
+total_connections_received:82
+total_commands_processed:77
+instantaneous_ops_per_sec:0
+total_net_input_bytes:2506
+total_net_output_bytes:29898950
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:0
+evicted_keys:0
+keyspace_hits:27
+keyspace_misses:10
+pubsub_channels:0
+pubsub_patterns:0
+latest_fork_usec:3343
+migrate_cached_sockets:0
+
+# Replication
+role:master
+connected_slaves:0
+master_repl_offset:0
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:7.14
+used_cpu_user:3.15
+used_cpu_sys_children:0.00
+used_cpu_user_children:0.00
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=1,expires=0,avg_ttl=0
+
+
+
