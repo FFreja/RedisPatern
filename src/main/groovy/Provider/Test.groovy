@@ -2,22 +2,24 @@ package Provider
 
 import api.Cart
 import api.Item
+import codec.CartCodec
 import com.example.tutorial.CartProtos
+import com.lambdaworks.redis.RedisClient
 import redis.clients.jedis.Jedis
 
 class Test {
     static Jedis jedis = new Jedis("127.0.0.1",6379)
 
-    public static void main(String[] args) {
+    static RedisClient client = new RedisClient("127.0.0.1",6379)
+
+    static void main(String[] args) {
         def cart = buildCartProto()
-
-        def connection = jedis.connect()
-
-        jedis.set("cart".bytes, cart.toByteArray())
-        def proto = CartProtos.Cart.parseFrom(jedis.get("cart".bytes))
+        def connection = client.connect(new CartCodec())
+        def commands = connection.sync()
+        commands.set("cart1", cart.toByteArray())
+        def proto = CartProtos.Cart.parseFrom(commands.get("cart1"))
         System.out.println(proto.toString())
-
-        jedis.close()
+        connection.close()
     }
 
     private static CartProtos.Cart buildCartProto() {

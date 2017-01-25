@@ -15,13 +15,15 @@ class Test {
         def cart = buildCart()
 
         RedisCommands<String, Object> connection = client
-                .connect(CompressionCodec
-                .valueCompressor(new SerializedObjectCodec(), CompressionCodec.CompressionType.GZIP))
+        .connect()
+//                .connect(CompressionCodec
+//                .valueCompressor(new SerializedObjectCodec(), CompressionCodec.CompressionType.GZIP))
                 .sync()
 //        connection.set("lettuce",cart)
 //        List<String> list = ["one", "two"]
 //        connection.set("list", list)
-        connection.set("cart", cart)
+//        connection.set("cart", cart)
+        connection.set("cart", "123".bytes)
         connection.close()
 
     }
