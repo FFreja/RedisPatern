@@ -1,6 +1,7 @@
 package codec
 
 import com.lambdaworks.redis.codec.RedisCodec
+import org.apache.commons.lang3.StringUtils
 
 import java.nio.ByteBuffer
 
@@ -22,6 +23,9 @@ class CartCodec implements RedisCodec<String, byte[]>{
 
     @Override
     ByteBuffer encodeKey(String key) {
+        if(StringUtils.isEmpty(key)){
+            //Todo: exception
+        }
         ByteBuffer.wrap(key.bytes)
     }
 
@@ -35,9 +39,9 @@ class CartCodec implements RedisCodec<String, byte[]>{
     }
 
     private static byte[] getBytes(ByteBuffer buffer) {
-        byte[] b = new byte[buffer.remaining()];
-        buffer.get(b);
-        return b;
+        byte[] b = new byte[buffer.remaining()]
+        buffer.get(b)
+        return b
     }
 
 }

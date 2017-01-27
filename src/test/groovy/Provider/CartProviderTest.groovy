@@ -28,18 +28,15 @@ class CartProviderTest extends Specification {
 
     }
 
-    void 'should add items' () {
+    void 'should build an item proto' () {
         given:
-        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: 0)
-        def item2 = new Item(name:'name2', id: "2", brand: "brand2", stockType: 1)
-        def items = [item1, item2]
+        def item = new Item(name:'name1', id: "1", brand: "brand1", stockType: 0)
 
-        def resultItems = provider.buildItems(items)
+        def itemProto = provider.buildItem(item)
 
         expect:
-        resultItems.size() == 2
-        resultItems.get(0) == CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
-                .setBrand(item1.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item1.getStockType())).build()
+        itemProto == CartProtos.Item.newBuilder().setName(item.getName()).setId(item.getId())
+                .setBrand(item.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item.getStockType())).build()
     }
 
     void 'should build a cart proto' () {
@@ -54,4 +51,21 @@ class CartProviderTest extends Specification {
         .addItem(CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
                 .setBrand(item1.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item1.getStockType())).build()).build()
     }
+
+    void 'should build cartProto with items' () {
+        given:
+        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: 0)
+        def item2 = new Item(name:'name2', id: "2", brand: "brand2", stockType: 1)
+        def cart = new Cart(name:'cart', id:123)
+        cart.items = [item1, item2]
+
+        CartProtos.Cart cartProto = provider.buildCartProto(cart)
+
+        expect:
+        cartProto.getId() == 123
+        cartProto.itemCount == 2
+        cartProto.getItem(0) == CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
+                .setBrand(item1.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item1.getStockType())).build()
+    }
+
 }
