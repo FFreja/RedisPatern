@@ -13,19 +13,20 @@ class CartProviderTest extends Specification {
     void 'should save cart to redis' () {
         given:
         RedisClient client = new RedisClient("127.0.0.1",6379)
-        def cart = new Cart(name:'cart', id:123)
-        provider.save(cart)
+        def cart = new Cart(name:'cart', id:1)
+        def future = provider.save(cart)
 
-
+//        expect:
+//        future.isDone() == true
     }
 
     void 'should get cart from redis' () {
         given:
         RedisClient client = RedisClient.create("redis://localhost")
-        def cart = provider.get("123")
+        def cart = provider.get(1)
 
-
-
+        expect:
+        cart == ""
     }
 
     void 'should build an item proto' () {

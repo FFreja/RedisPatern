@@ -9,11 +9,11 @@ import java.nio.ByteBuffer
  * Lettuce default to StringCodec if there is no RedisCodec defined
  * Customize Codec with protobuff
  */
-class CartCodec implements RedisCodec<String, byte[]>{
+class CartCodec implements RedisCodec<GString, byte[]>{
 
     @Override
-    String decodeKey(ByteBuffer bytes) {
-        return new String(bytes)
+    GString decodeKey(ByteBuffer bytes) {
+        return Eval.me(new String(bytes))
     }
 
     @Override
@@ -22,7 +22,7 @@ class CartCodec implements RedisCodec<String, byte[]>{
     }
 
     @Override
-    ByteBuffer encodeKey(String key) {
+    ByteBuffer encodeKey(GString key) {
         if(StringUtils.isEmpty(key)){
             //Todo: exception
         }

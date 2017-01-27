@@ -4,6 +4,7 @@ import api.Cart
 import api.Item
 import codec.CartCodec
 import com.example.tutorial.CartProtos
+import com.google.protobuf.util.JsonFormat
 import com.lambdaworks.redis.RedisClient
 import redis.clients.jedis.Jedis
 
@@ -16,9 +17,9 @@ class Test {
         def cart = buildCartProto()
         def connection = client.connect(new CartCodec())
         def commands = connection.sync()
-        commands.set("cart1", cart.toByteArray())
-        def proto = CartProtos.Cart.parseFrom(commands.get("cart1"))
-        System.out.println(proto.toString())
+        commands.set("cart1${}", cart.toByteArray())
+        def proto = CartProtos.Cart.parseFrom(commands.get("cart1${}"))
+        System.out.println(JsonFormat.printer().print(proto))
         connection.close()
     }
 

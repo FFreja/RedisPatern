@@ -5,6 +5,7 @@ import api.Item
 import codec.CartCodec
 import com.example.tutorial.CartProtos
 import com.google.inject.Inject
+import com.google.protobuf.util.JsonFormat
 import com.lambdaworks.redis.RedisClient
 import com.lambdaworks.redis.RedisFuture
 import com.lambdaworks.redis.api.StatefulRedisConnection
@@ -23,39 +24,29 @@ class CartProvider {
 
     RedisClient client = RedisClient.create("redis://localhost")
 
+    //Async POST, PUT, PATCH to improve performance
     void save(Cart cart) {
         def connection = client.connect(new CartCodec())
 
         def commands = connection.async()
-        def future = commands.set("cart:${cart.id}", buildCartProto())
-        future.whenComplete(new BiConsumer<String, Throwable>() {
-            @Override
-            void accept(String s, Throwable throwable) {
-                connection.close()
-            }
-        })
-    }
+        def future = commands.set("cart:${cart.id}", buildCartProto(cart).toByteArray())
 
-    void get(int id) {
-
-    }
-
-    Cart get(String id) {
-        def cart
-        def connection = client.connect()
-
-        def commands = connection.async()
-        RedisFuture<String> future = commands.hgetall("cart:${id}")
         future.thenAccept(new Consumer<String>() {
             @Override
-            void accept(String s)  {
-
-                cart = CartProtos.Cart.parseFrom(s)
+            void accept(String s) {
                 connection.close()
             }
         })
+    }
 
-        return cart
+    String get(int id) {
+        def connection = client.connect(new CartCodec())
+        def commands = connection.sync()
+        def cart = commands.get("cart:${id}")
+
+        CartProtos.Cart from = CartProtos.Cart.parseFrom(cart)
+        connection.close()
+        return JsonFormat.printer().print(from)
     }
 
     private CartProtos.Cart buildCartProto(Cart cart) {
