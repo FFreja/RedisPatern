@@ -4,5 +4,5 @@ class Item {
     String name
     int id
     String brand
-    int stockType
+    StockType stockType
 }

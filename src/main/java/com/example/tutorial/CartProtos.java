@@ -19,26 +19,14 @@ public final class CartProtos {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     *  make all properties optional
-     * </pre>
-     *
      * <code>optional string name = 1;</code>
      */
     boolean hasName();
     /**
-     * <pre>
-     *  make all properties optional
-     * </pre>
-     *
      * <code>optional string name = 1;</code>
      */
     java.lang.String getName();
     /**
-     * <pre>
-     *  make all properties optional
-     * </pre>
-     *
      * <code>optional string name = 1;</code>
      */
     com.google.protobuf.ByteString
@@ -68,13 +56,13 @@ public final class CartProtos {
         getBrandBytes();
 
     /**
-     * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+     * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
      */
-    boolean hasType();
+    boolean hasStockType();
     /**
-     * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+     * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
      */
-    com.example.tutorial.CartProtos.Item.StockTypes getType();
+    com.example.tutorial.CartProtos.Item.StockTypes getStockType();
   }
   /**
    * Protobuf type {@code tutorial.Item}
@@ -91,7 +79,7 @@ public final class CartProtos {
       name_ = "";
       id_ = 0;
       brand_ = "";
-      type_ = 2;
+      stockType_ = 2;
     }
 
     @java.lang.Override
@@ -146,7 +134,7 @@ public final class CartProtos {
                 unknownFields.mergeVarintField(4, rawValue);
               } else {
                 bitField0_ |= 0x00000008;
-                type_ = rawValue;
+                stockType_ = rawValue;
               }
               break;
             }
@@ -277,20 +265,12 @@ public final class CartProtos {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <pre>
-     *  make all properties optional
-     * </pre>
-     *
      * <code>optional string name = 1;</code>
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <pre>
-     *  make all properties optional
-     * </pre>
-     *
      * <code>optional string name = 1;</code>
      */
     public java.lang.String getName() {
@@ -308,10 +288,6 @@ public final class CartProtos {
       }
     }
     /**
-     * <pre>
-     *  make all properties optional
-     * </pre>
-     *
      * <code>optional string name = 1;</code>
      */
     public com.google.protobuf.ByteString
@@ -385,19 +361,19 @@ public final class CartProtos {
       }
     }
 
-    public static final int TYPE_FIELD_NUMBER = 4;
-    private int type_;
+    public static final int STOCKTYPE_FIELD_NUMBER = 4;
+    private int stockType_;
     /**
-     * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+     * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
      */
-    public boolean hasType() {
+    public boolean hasStockType() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+     * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
      */
-    public com.example.tutorial.CartProtos.Item.StockTypes getType() {
-      com.example.tutorial.CartProtos.Item.StockTypes result = com.example.tutorial.CartProtos.Item.StockTypes.valueOf(type_);
+    public com.example.tutorial.CartProtos.Item.StockTypes getStockType() {
+      com.example.tutorial.CartProtos.Item.StockTypes result = com.example.tutorial.CartProtos.Item.StockTypes.valueOf(stockType_);
       return result == null ? com.example.tutorial.CartProtos.Item.StockTypes.STOCK : result;
     }
 
@@ -423,7 +399,7 @@ public final class CartProtos {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, brand_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeEnum(4, type_);
+        output.writeEnum(4, stockType_);
       }
       unknownFields.writeTo(output);
     }
@@ -445,7 +421,7 @@ public final class CartProtos {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, type_);
+          .computeEnumSize(4, stockType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -479,9 +455,9 @@ public final class CartProtos {
         result = result && getBrand()
             .equals(other.getBrand());
       }
-      result = result && (hasType() == other.hasType());
-      if (hasType()) {
-        result = result && type_ == other.type_;
+      result = result && (hasStockType() == other.hasStockType());
+      if (hasStockType()) {
+        result = result && stockType_ == other.stockType_;
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -506,9 +482,9 @@ public final class CartProtos {
         hash = (37 * hash) + BRAND_FIELD_NUMBER;
         hash = (53 * hash) + getBrand().hashCode();
       }
-      if (hasType()) {
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + type_;
+      if (hasStockType()) {
+        hash = (37 * hash) + STOCKTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + stockType_;
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -634,7 +610,7 @@ public final class CartProtos {
         bitField0_ = (bitField0_ & ~0x00000002);
         brand_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        type_ = 2;
+        stockType_ = 2;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -675,7 +651,7 @@ public final class CartProtos {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.type_ = type_;
+        result.stockType_ = stockType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -731,8 +707,8 @@ public final class CartProtos {
           brand_ = other.brand_;
           onChanged();
         }
-        if (other.hasType()) {
-          setType(other.getType());
+        if (other.hasStockType()) {
+          setStockType(other.getStockType());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -764,20 +740,12 @@ public final class CartProtos {
 
       private java.lang.Object name_ = "";
       /**
-       * <pre>
-       *  make all properties optional
-       * </pre>
-       *
        * <code>optional string name = 1;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <pre>
-       *  make all properties optional
-       * </pre>
-       *
        * <code>optional string name = 1;</code>
        */
       public java.lang.String getName() {
@@ -795,10 +763,6 @@ public final class CartProtos {
         }
       }
       /**
-       * <pre>
-       *  make all properties optional
-       * </pre>
-       *
        * <code>optional string name = 1;</code>
        */
       public com.google.protobuf.ByteString
@@ -815,10 +779,6 @@ public final class CartProtos {
         }
       }
       /**
-       * <pre>
-       *  make all properties optional
-       * </pre>
-       *
        * <code>optional string name = 1;</code>
        */
       public Builder setName(
@@ -832,10 +792,6 @@ public final class CartProtos {
         return this;
       }
       /**
-       * <pre>
-       *  make all properties optional
-       * </pre>
-       *
        * <code>optional string name = 1;</code>
        */
       public Builder clearName() {
@@ -845,10 +801,6 @@ public final class CartProtos {
         return this;
       }
       /**
-       * <pre>
-       *  make all properties optional
-       * </pre>
-       *
        * <code>optional string name = 1;</code>
        */
       public Builder setNameBytes(
@@ -970,38 +922,38 @@ public final class CartProtos {
         return this;
       }
 
-      private int type_ = 2;
+      private int stockType_ = 2;
       /**
-       * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+       * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
        */
-      public boolean hasType() {
+      public boolean hasStockType() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+       * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
        */
-      public com.example.tutorial.CartProtos.Item.StockTypes getType() {
-        com.example.tutorial.CartProtos.Item.StockTypes result = com.example.tutorial.CartProtos.Item.StockTypes.valueOf(type_);
+      public com.example.tutorial.CartProtos.Item.StockTypes getStockType() {
+        com.example.tutorial.CartProtos.Item.StockTypes result = com.example.tutorial.CartProtos.Item.StockTypes.valueOf(stockType_);
         return result == null ? com.example.tutorial.CartProtos.Item.StockTypes.STOCK : result;
       }
       /**
-       * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+       * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
        */
-      public Builder setType(com.example.tutorial.CartProtos.Item.StockTypes value) {
+      public Builder setStockType(com.example.tutorial.CartProtos.Item.StockTypes value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000008;
-        type_ = value.getNumber();
+        stockType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional .tutorial.Item.StockTypes type = 4 [default = STOCK];</code>
+       * <code>optional .tutorial.Item.StockTypes stockType = 4 [default = STOCK];</code>
        */
-      public Builder clearType() {
+      public Builder clearStockType() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        type_ = 2;
+        stockType_ = 2;
         onChanged();
         return this;
       }
@@ -1082,27 +1034,27 @@ public final class CartProtos {
         getNameBytes();
 
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
     java.util.List<com.example.tutorial.CartProtos.Item> 
-        getItemList();
+        getItemsList();
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    com.example.tutorial.CartProtos.Item getItem(int index);
+    com.example.tutorial.CartProtos.Item getItems(int index);
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    int getItemCount();
+    int getItemsCount();
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
     java.util.List<? extends com.example.tutorial.CartProtos.ItemOrBuilder> 
-        getItemOrBuilderList();
+        getItemsOrBuilderList();
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    com.example.tutorial.CartProtos.ItemOrBuilder getItemOrBuilder(
+    com.example.tutorial.CartProtos.ItemOrBuilder getItemsOrBuilder(
         int index);
   }
   /**
@@ -1119,7 +1071,7 @@ public final class CartProtos {
     private Cart() {
       id_ = 0;
       name_ = "";
-      item_ = java.util.Collections.emptyList();
+      items_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1163,10 +1115,10 @@ public final class CartProtos {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                item_ = new java.util.ArrayList<com.example.tutorial.CartProtos.Item>();
+                items_ = new java.util.ArrayList<com.example.tutorial.CartProtos.Item>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              item_.add(
+              items_.add(
                   input.readMessage(com.example.tutorial.CartProtos.Item.PARSER, extensionRegistry));
               break;
             }
@@ -1179,7 +1131,7 @@ public final class CartProtos {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          item_ = java.util.Collections.unmodifiableList(item_);
+          items_ = java.util.Collections.unmodifiableList(items_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1255,39 +1207,39 @@ public final class CartProtos {
       }
     }
 
-    public static final int ITEM_FIELD_NUMBER = 3;
-    private java.util.List<com.example.tutorial.CartProtos.Item> item_;
+    public static final int ITEMS_FIELD_NUMBER = 3;
+    private java.util.List<com.example.tutorial.CartProtos.Item> items_;
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    public java.util.List<com.example.tutorial.CartProtos.Item> getItemList() {
-      return item_;
+    public java.util.List<com.example.tutorial.CartProtos.Item> getItemsList() {
+      return items_;
     }
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
     public java.util.List<? extends com.example.tutorial.CartProtos.ItemOrBuilder> 
-        getItemOrBuilderList() {
-      return item_;
+        getItemsOrBuilderList() {
+      return items_;
     }
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    public int getItemCount() {
-      return item_.size();
+    public int getItemsCount() {
+      return items_.size();
     }
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    public com.example.tutorial.CartProtos.Item getItem(int index) {
-      return item_.get(index);
+    public com.example.tutorial.CartProtos.Item getItems(int index) {
+      return items_.get(index);
     }
     /**
-     * <code>repeated .tutorial.Item item = 3;</code>
+     * <code>repeated .tutorial.Item items = 3;</code>
      */
-    public com.example.tutorial.CartProtos.ItemOrBuilder getItemOrBuilder(
+    public com.example.tutorial.CartProtos.ItemOrBuilder getItemsOrBuilder(
         int index) {
-      return item_.get(index);
+      return items_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1308,8 +1260,8 @@ public final class CartProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      for (int i = 0; i < item_.size(); i++) {
-        output.writeMessage(3, item_.get(i));
+      for (int i = 0; i < items_.size(); i++) {
+        output.writeMessage(3, items_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1326,9 +1278,9 @@ public final class CartProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      for (int i = 0; i < item_.size(); i++) {
+      for (int i = 0; i < items_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, item_.get(i));
+          .computeMessageSize(3, items_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1357,8 +1309,8 @@ public final class CartProtos {
         result = result && getName()
             .equals(other.getName());
       }
-      result = result && getItemList()
-          .equals(other.getItemList());
+      result = result && getItemsList()
+          .equals(other.getItemsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1378,9 +1330,9 @@ public final class CartProtos {
         hash = (37 * hash) + NAME_FIELD_NUMBER;
         hash = (53 * hash) + getName().hashCode();
       }
-      if (getItemCount() > 0) {
-        hash = (37 * hash) + ITEM_FIELD_NUMBER;
-        hash = (53 * hash) + getItemList().hashCode();
+      if (getItemsCount() > 0) {
+        hash = (37 * hash) + ITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getItemsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1496,7 +1448,7 @@ public final class CartProtos {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getItemFieldBuilder();
+          getItemsFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1505,11 +1457,11 @@ public final class CartProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (itemBuilder_ == null) {
-          item_ = java.util.Collections.emptyList();
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          itemBuilder_.clear();
+          itemsBuilder_.clear();
         }
         return this;
       }
@@ -1543,14 +1495,14 @@ public final class CartProtos {
           to_bitField0_ |= 0x00000002;
         }
         result.name_ = name_;
-        if (itemBuilder_ == null) {
+        if (itemsBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            item_ = java.util.Collections.unmodifiableList(item_);
+            items_ = java.util.Collections.unmodifiableList(items_);
             bitField0_ = (bitField0_ & ~0x00000004);
           }
-          result.item_ = item_;
+          result.items_ = items_;
         } else {
-          result.item_ = itemBuilder_.build();
+          result.items_ = itemsBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1602,29 +1554,29 @@ public final class CartProtos {
           name_ = other.name_;
           onChanged();
         }
-        if (itemBuilder_ == null) {
-          if (!other.item_.isEmpty()) {
-            if (item_.isEmpty()) {
-              item_ = other.item_;
+        if (itemsBuilder_ == null) {
+          if (!other.items_.isEmpty()) {
+            if (items_.isEmpty()) {
+              items_ = other.items_;
               bitField0_ = (bitField0_ & ~0x00000004);
             } else {
-              ensureItemIsMutable();
-              item_.addAll(other.item_);
+              ensureItemsIsMutable();
+              items_.addAll(other.items_);
             }
             onChanged();
           }
         } else {
-          if (!other.item_.isEmpty()) {
-            if (itemBuilder_.isEmpty()) {
-              itemBuilder_.dispose();
-              itemBuilder_ = null;
-              item_ = other.item_;
+          if (!other.items_.isEmpty()) {
+            if (itemsBuilder_.isEmpty()) {
+              itemsBuilder_.dispose();
+              itemsBuilder_ = null;
+              items_ = other.items_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              itemBuilder_ = 
+              itemsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getItemFieldBuilder() : null;
+                   getItemsFieldBuilder() : null;
             } else {
-              itemBuilder_.addAllMessages(other.item_);
+              itemsBuilder_.addAllMessages(other.items_);
             }
           }
         }
@@ -1764,244 +1716,244 @@ public final class CartProtos {
         return this;
       }
 
-      private java.util.List<com.example.tutorial.CartProtos.Item> item_ =
+      private java.util.List<com.example.tutorial.CartProtos.Item> items_ =
         java.util.Collections.emptyList();
-      private void ensureItemIsMutable() {
+      private void ensureItemsIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          item_ = new java.util.ArrayList<com.example.tutorial.CartProtos.Item>(item_);
+          items_ = new java.util.ArrayList<com.example.tutorial.CartProtos.Item>(items_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.example.tutorial.CartProtos.Item, com.example.tutorial.CartProtos.Item.Builder, com.example.tutorial.CartProtos.ItemOrBuilder> itemBuilder_;
+          com.example.tutorial.CartProtos.Item, com.example.tutorial.CartProtos.Item.Builder, com.example.tutorial.CartProtos.ItemOrBuilder> itemsBuilder_;
 
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public java.util.List<com.example.tutorial.CartProtos.Item> getItemList() {
-        if (itemBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(item_);
+      public java.util.List<com.example.tutorial.CartProtos.Item> getItemsList() {
+        if (itemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(items_);
         } else {
-          return itemBuilder_.getMessageList();
+          return itemsBuilder_.getMessageList();
         }
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public int getItemCount() {
-        if (itemBuilder_ == null) {
-          return item_.size();
+      public int getItemsCount() {
+        if (itemsBuilder_ == null) {
+          return items_.size();
         } else {
-          return itemBuilder_.getCount();
+          return itemsBuilder_.getCount();
         }
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public com.example.tutorial.CartProtos.Item getItem(int index) {
-        if (itemBuilder_ == null) {
-          return item_.get(index);
+      public com.example.tutorial.CartProtos.Item getItems(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
         } else {
-          return itemBuilder_.getMessage(index);
+          return itemsBuilder_.getMessage(index);
         }
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder setItem(
+      public Builder setItems(
           int index, com.example.tutorial.CartProtos.Item value) {
-        if (itemBuilder_ == null) {
+        if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureItemIsMutable();
-          item_.set(index, value);
+          ensureItemsIsMutable();
+          items_.set(index, value);
           onChanged();
         } else {
-          itemBuilder_.setMessage(index, value);
+          itemsBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder setItem(
+      public Builder setItems(
           int index, com.example.tutorial.CartProtos.Item.Builder builderForValue) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.set(index, builderForValue.build());
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.set(index, builderForValue.build());
           onChanged();
         } else {
-          itemBuilder_.setMessage(index, builderForValue.build());
+          itemsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder addItem(com.example.tutorial.CartProtos.Item value) {
-        if (itemBuilder_ == null) {
+      public Builder addItems(com.example.tutorial.CartProtos.Item value) {
+        if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureItemIsMutable();
-          item_.add(value);
+          ensureItemsIsMutable();
+          items_.add(value);
           onChanged();
         } else {
-          itemBuilder_.addMessage(value);
+          itemsBuilder_.addMessage(value);
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder addItem(
+      public Builder addItems(
           int index, com.example.tutorial.CartProtos.Item value) {
-        if (itemBuilder_ == null) {
+        if (itemsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureItemIsMutable();
-          item_.add(index, value);
+          ensureItemsIsMutable();
+          items_.add(index, value);
           onChanged();
         } else {
-          itemBuilder_.addMessage(index, value);
+          itemsBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder addItem(
+      public Builder addItems(
           com.example.tutorial.CartProtos.Item.Builder builderForValue) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.add(builderForValue.build());
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(builderForValue.build());
           onChanged();
         } else {
-          itemBuilder_.addMessage(builderForValue.build());
+          itemsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder addItem(
+      public Builder addItems(
           int index, com.example.tutorial.CartProtos.Item.Builder builderForValue) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.add(index, builderForValue.build());
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(index, builderForValue.build());
           onChanged();
         } else {
-          itemBuilder_.addMessage(index, builderForValue.build());
+          itemsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder addAllItem(
+      public Builder addAllItems(
           java.lang.Iterable<? extends com.example.tutorial.CartProtos.Item> values) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, item_);
+              values, items_);
           onChanged();
         } else {
-          itemBuilder_.addAllMessages(values);
+          itemsBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder clearItem() {
-        if (itemBuilder_ == null) {
-          item_ = java.util.Collections.emptyList();
+      public Builder clearItems() {
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
-          itemBuilder_.clear();
+          itemsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public Builder removeItem(int index) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.remove(index);
+      public Builder removeItems(int index) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.remove(index);
           onChanged();
         } else {
-          itemBuilder_.remove(index);
+          itemsBuilder_.remove(index);
         }
         return this;
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public com.example.tutorial.CartProtos.Item.Builder getItemBuilder(
+      public com.example.tutorial.CartProtos.Item.Builder getItemsBuilder(
           int index) {
-        return getItemFieldBuilder().getBuilder(index);
+        return getItemsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public com.example.tutorial.CartProtos.ItemOrBuilder getItemOrBuilder(
+      public com.example.tutorial.CartProtos.ItemOrBuilder getItemsOrBuilder(
           int index) {
-        if (itemBuilder_ == null) {
-          return item_.get(index);  } else {
-          return itemBuilder_.getMessageOrBuilder(index);
+        if (itemsBuilder_ == null) {
+          return items_.get(index);  } else {
+          return itemsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
       public java.util.List<? extends com.example.tutorial.CartProtos.ItemOrBuilder> 
-           getItemOrBuilderList() {
-        if (itemBuilder_ != null) {
-          return itemBuilder_.getMessageOrBuilderList();
+           getItemsOrBuilderList() {
+        if (itemsBuilder_ != null) {
+          return itemsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(item_);
+          return java.util.Collections.unmodifiableList(items_);
         }
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public com.example.tutorial.CartProtos.Item.Builder addItemBuilder() {
-        return getItemFieldBuilder().addBuilder(
+      public com.example.tutorial.CartProtos.Item.Builder addItemsBuilder() {
+        return getItemsFieldBuilder().addBuilder(
             com.example.tutorial.CartProtos.Item.getDefaultInstance());
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
-      public com.example.tutorial.CartProtos.Item.Builder addItemBuilder(
+      public com.example.tutorial.CartProtos.Item.Builder addItemsBuilder(
           int index) {
-        return getItemFieldBuilder().addBuilder(
+        return getItemsFieldBuilder().addBuilder(
             index, com.example.tutorial.CartProtos.Item.getDefaultInstance());
       }
       /**
-       * <code>repeated .tutorial.Item item = 3;</code>
+       * <code>repeated .tutorial.Item items = 3;</code>
        */
       public java.util.List<com.example.tutorial.CartProtos.Item.Builder> 
-           getItemBuilderList() {
-        return getItemFieldBuilder().getBuilderList();
+           getItemsBuilderList() {
+        return getItemsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
           com.example.tutorial.CartProtos.Item, com.example.tutorial.CartProtos.Item.Builder, com.example.tutorial.CartProtos.ItemOrBuilder> 
-          getItemFieldBuilder() {
-        if (itemBuilder_ == null) {
-          itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          getItemsFieldBuilder() {
+        if (itemsBuilder_ == null) {
+          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.example.tutorial.CartProtos.Item, com.example.tutorial.CartProtos.Item.Builder, com.example.tutorial.CartProtos.ItemOrBuilder>(
-                  item_,
+                  items_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
-          item_ = null;
+          items_ = null;
         }
-        return itemBuilder_;
+        return itemsBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2071,13 +2023,14 @@ public final class CartProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023tutorial/Cart.proto\022\010tutorial\"\220\001\n\004Item" +
+      "\n\023tutorial/Cart.proto\022\010tutorial\"\225\001\n\004Item" +
       "\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\005\022\r\n\005brand\030\003 \001(" +
-      "\t\022.\n\004type\030\004 \001(\0162\031.tutorial.Item.StockTyp" +
-      "es:\005STOCK\"/\n\nStockTypes\022\n\n\006REMOTE\020\000\022\n\n\006D" +
-      "EMAND\020\001\022\t\n\005STOCK\020\002\">\n\004Cart\022\n\n\002id\030\001 \001(\005\022\014" +
-      "\n\004name\030\002 \001(\t\022\034\n\004item\030\003 \003(\0132\016.tutorial.It" +
-      "emB\"\n\024com.example.tutorialB\nCartProtos"
+      "\t\0223\n\tstockType\030\004 \001(\0162\031.tutorial.Item.Sto" +
+      "ckTypes:\005STOCK\"/\n\nStockTypes\022\n\n\006REMOTE\020\000" +
+      "\022\n\n\006DEMAND\020\001\022\t\n\005STOCK\020\002\"?\n\004Cart\022\n\n\002id\030\001 " +
+      "\001(\005\022\014\n\004name\030\002 \001(\t\022\035\n\005items\030\003 \003(\0132\016.tutor" +
+      "ial.ItemB\"\n\024com.example.tutorialB\nCartPr" +
+      "otos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2096,13 +2049,13 @@ public final class CartProtos {
     internal_static_tutorial_Item_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tutorial_Item_descriptor,
-        new java.lang.String[] { "Name", "Id", "Brand", "Type", });
+        new java.lang.String[] { "Name", "Id", "Brand", "StockType", });
     internal_static_tutorial_Cart_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_tutorial_Cart_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tutorial_Cart_descriptor,
-        new java.lang.String[] { "Id", "Name", "Item", });
+        new java.lang.String[] { "Id", "Name", "Items", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

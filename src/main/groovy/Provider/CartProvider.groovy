@@ -20,13 +20,31 @@ import java.util.function.Consumer
 class CartProvider {
 
     @Inject
-//    RedisClient client
+    RedisClient client
 
-    RedisClient client = RedisClient.create("redis://localhost")
+    @Inject
+    CartCodec codec
+//    RedisClient client = RedisClient.create("redis://localhost")
 
-    //Async POST, PUT, PATCH to improve performance
+    /**
+     * get cart from cache and convert to json
+     * @param id
+     * @return
+     */
+    String get(int id) {
+        def connection = client.connect(codec)
+        def commands = connection.sync()
+        def cart = commands.get("cart:${id}")
+
+        CartProtos.Cart from = CartProtos.Cart.parseFrom(cart)
+        connection.close()
+        return JsonFormat.printer().print(from)
+    }
+
+
+    //Async POST, PUT, PATCH to update cart cache
     void save(Cart cart) {
-        def connection = client.connect(new CartCodec())
+        def connection = client.connect(codec)
 
         def commands = connection.async()
         def future = commands.set("cart:${cart.id}", buildCartProto(cart).toByteArray())
@@ -39,23 +57,19 @@ class CartProvider {
         })
     }
 
-    String get(int id) {
-        def connection = client.connect(new CartCodec())
-        def commands = connection.sync()
-        def cart = commands.get("cart:${id}")
-
-        CartProtos.Cart from = CartProtos.Cart.parseFrom(cart)
-        connection.close()
-        return JsonFormat.printer().print(from)
-    }
-
+    /**
+     * Can directly build message from json string for simple requirement.
+     * Need customize for complex requirement
+     * @param cart
+     * @return
+     */
     private CartProtos.Cart buildCartProto(Cart cart) {
         def cartProto = CartProtos.Cart.newBuilder()
         cartProto.setName(cart.name)
         cartProto.setId(cart.id)
 
         cart.items.each {
-            cartProto.addItem(buildItem(it))
+            cartProto.addItems(buildItem(it))
         }
 
         cartProto.build()
@@ -64,7 +78,7 @@ class CartProvider {
     private CartProtos.Item buildItem(Item it) {
         def item = CartProtos.Item.newBuilder()
         item.setName(it.name).setId(it.id).
-                setBrand(it.brand).setType(CartProtos.Item.StockTypes.forNumber(it.stockType))
+                setBrand(it.brand).setStockType(CartProtos.Item.StockTypes.forNumber(it.stockType.code))
         item.build()
     }
 }

@@ -4,7 +4,7 @@ import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration
 
 class TutorialConfig extends Configuration {
     String cacheHost
-    String cachePort
+    int cachePort
 
     @JsonProperty("swagger")
     SwaggerBundleConfiguration swaggerBundleConfiguration

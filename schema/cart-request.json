@@ -1,15 +1,15 @@
 {
   "id": 123,
   "name": "cart",
-  "item": [{
+  "items": [{
     "name": "name1",
     "id": 49,
     "brand": "brand1",
-    "type": "REMOTE"
+    "stockType": 0
   }, {
     "name": "name2",
     "id": 50,
     "brand": "brand2",
-    "type": "DEMAND"
+    "stockType": 1
   }]
 }

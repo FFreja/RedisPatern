@@ -2,6 +2,7 @@ package Provider
 
 import api.Cart
 import api.Item
+import api.StockType
 import com.example.tutorial.CartProtos
 import com.lambdaworks.redis.RedisClient
 import com.lambdaworks.redis.RedisFuture
@@ -37,26 +38,26 @@ class CartProviderTest extends Specification {
 
         expect:
         itemProto == CartProtos.Item.newBuilder().setName(item.getName()).setId(item.getId())
-                .setBrand(item.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item.getStockType())).build()
+                .setBrand(item.getBrand()).setStockType(CartProtos.Item.StockTypes.forNumber(item.getStockType())).build()
     }
 
     void 'should build a cart proto' () {
         given:
-        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: 0)
+        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: StockType.REMOTE)
         def cart = new Cart(name:'cart', id:123)
         cart.items = [item1]
         def cartProto = provider.buildCartProto(cart)
 
         expect:
         cartProto ==  CartProtos.Cart.newBuilder().setName(cart.name).setId(cart.id)
-        .addItem(CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
-                .setBrand(item1.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item1.getStockType())).build()).build()
+        .addItems(CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
+                .setBrand(item1.getBrand()).setStockType(CartProtos.Item.StockTypes.forNumber(item1.getStockType().code)).build()).build()
     }
 
     void 'should build cartProto with items' () {
         given:
-        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: 0)
-        def item2 = new Item(name:'name2', id: "2", brand: "brand2", stockType: 1)
+        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: StockType.DEMAND)
+        def item2 = new Item(name:'name2', id: "2", brand: "brand2", stockType: StockType.REMOTE)
         def cart = new Cart(name:'cart', id:123)
         cart.items = [item1, item2]
 
@@ -64,9 +65,9 @@ class CartProviderTest extends Specification {
 
         expect:
         cartProto.getId() == 123
-        cartProto.itemCount == 2
-        cartProto.getItem(0) == CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
-                .setBrand(item1.getBrand()).setType(CartProtos.Item.StockTypes.forNumber(item1.getStockType())).build()
+        cartProto.itemsCount == 2
+        cartProto.getItems(0) == CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
+                .setBrand(item1.getBrand()).setStockType(CartProtos.Item.StockTypes.forNumber(item1.getStockType().code)).build()
     }
 
 }

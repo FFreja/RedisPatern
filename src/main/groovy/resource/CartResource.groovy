@@ -3,27 +3,31 @@ package resource
 import Provider.CartProvider
 import api.Cart
 import com.google.inject.Inject
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiOperation
 
-import javax.ws.rs.GET
-import javax.ws.rs.POST
-import javax.ws.rs.Produces
-import javax.ws.rs.QueryParam
+import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
+@Api('/cart service')
+@Path('/v1/cart')
 @Produces(MediaType.APPLICATION_JSON)
 class CartResource {
 
     @Inject
-    CartProvider provider
+    CartProvider provider = new CartProvider()
 
     @POST
-    void createCart(Cart cart){
+    @ApiOperation('Create cart cache')
+    def createCart(Cart cart){
         provider.save(cart)
     }
 
     @GET
-    void getCart(@QueryParam('id')int  id) {
-
+    @Path('/{id}')
+    @ApiOperation('Get cart info from cache by id')
+    def getCart(@PathParam('id')int  id) {
+        provider.get(id)
     }
 
 }
