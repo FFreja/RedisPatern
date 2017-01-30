@@ -7,14 +7,7 @@ import com.example.tutorial.CartProtos
 import com.google.inject.Inject
 import com.google.protobuf.util.JsonFormat
 import com.lambdaworks.redis.RedisClient
-import com.lambdaworks.redis.RedisFuture
-import com.lambdaworks.redis.api.StatefulRedisConnection
-import com.lambdaworks.redis.api.async.RedisAsyncCommands
-import com.sun.org.apache.xpath.internal.operations.Bool
-import javassist.bytecode.ByteArray
-import org.apache.commons.beanutils.BeanUtils
 
-import java.util.function.BiConsumer
 import java.util.function.Consumer
 
 class CartProvider {
@@ -40,7 +33,6 @@ class CartProvider {
         connection.close()
         return JsonFormat.printer().print(from)
     }
-
 
     //Async POST, PUT, PATCH to update cart cache
     void save(Cart cart) {

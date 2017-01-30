@@ -5,7 +5,7 @@ enum StockType {
 
     int code
 
-    StockType(int code){
+    StockType(int code) {
         this.code = code
     }
 }

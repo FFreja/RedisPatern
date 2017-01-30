@@ -1,16 +1,20 @@
 package resource
 
+import Provider.CartProvider
 import api.Cart
+import codec.CartCodec
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.apache.commons.lang3.StringUtils
+import com.lambdaworks.redis.RedisClient
 import spock.lang.Specification
 
 import java.nio.file.Files
 import java.nio.file.Paths
 
-class CartResourceTest extends Specification{
+class CartResourceTest extends Specification {
 
-    CartResource resource = new CartResource()
+    CartProvider provider = new CartProvider(client: RedisClient.create("redis://localhost"), codec: new CartCodec())
+
+    CartResource resource = new CartResource(provider: provider)
 
     void 'should get cart'() {
         given:

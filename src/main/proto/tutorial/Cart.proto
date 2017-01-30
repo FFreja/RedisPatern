@@ -14,7 +14,7 @@ message Item {
         STOCK = 2;
     }
 
-        optional StockTypes stockType = 4 [default = STOCK];
+    optional StockTypes stockType = 4 [default = STOCK];
 }
 
 message Cart {

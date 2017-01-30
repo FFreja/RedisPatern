@@ -5,7 +5,7 @@ import com.lambdaworks.redis.codec.RedisCodec
 import java.nio.ByteBuffer
 import java.nio.charset.Charset
 
-class  SerializedObjectCodec implements RedisCodec<String, Object> {
+class SerializedObjectCodec implements RedisCodec<String, Object> {
 
     private Charset charset = Charset.forName("UTF-8");
 

@@ -8,7 +8,7 @@ import com.lambdaworks.redis.RedisURI
 import io.dropwizard.setup.Environment
 import lectture.Provider.CartLettuceProvider
 
-class TutorialModule extends AbstractModule{
+class TutorialModule extends AbstractModule {
 
     private final TutorialConfig config
     private final Environment environment
@@ -23,22 +23,23 @@ class TutorialModule extends AbstractModule{
      * @return
      */
     @Provides
-    CartProvider prepareProvider(RedisClient client, CartCodec codec){
-        new CartProvider(client: client, codec:codec)
+    CartProvider prepareProvider(RedisClient client, CartCodec codec) {
+        new CartProvider(client: client, codec: codec)
     }
 
     @Provides
-    CartLettuceProvider prepareLettuce(){
+    CartLettuceProvider prepareLettuce() {
         new CartLettuceProvider()
     }
 
     @Provides
     RedisClient prepareRedisClient() {
-        RedisClient.create(RedisURI.create(config.cacheHost,config.cachePort))
+        RedisClient.create(RedisURI.create(config.cacheHost, config.cachePort))
     }
 
-    @Provides @Named('codec')
-    CartCodec prepareCodec(){
+    @Provides
+    @Named('codec')
+    CartCodec prepareCodec() {
         new CartCodec()
     }
 

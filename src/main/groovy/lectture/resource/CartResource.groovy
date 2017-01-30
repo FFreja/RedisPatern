@@ -14,7 +14,7 @@ class CartResource {
     CartLettuceProvider provider
 
     @POST
-    void createCart(lectture.api.Cart cart){
+    void createCart(lectture.api.Cart cart) {
         provider.save(cart)
     }
 

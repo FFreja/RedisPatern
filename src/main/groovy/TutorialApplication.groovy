@@ -8,7 +8,7 @@ import io.federecio.dropwizard.swagger.SwaggerBundle
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration
 import resource.CartResource
 
-class TutorialApplication extends Application<TutorialConfig>{
+class TutorialApplication extends Application<TutorialConfig> {
 
     static void main(String[] args) throws Exception {
         new TutorialApplication().run(args)

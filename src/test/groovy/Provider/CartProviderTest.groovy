@@ -4,61 +4,40 @@ import api.Cart
 import api.Item
 import api.StockType
 import com.example.tutorial.CartProtos
-import com.lambdaworks.redis.RedisClient
-import com.lambdaworks.redis.RedisFuture
 import spock.lang.Specification
 
 class CartProviderTest extends Specification {
     CartProvider provider = new CartProvider()
 
-    void 'should save cart to redis' () {
+    void 'should build an item proto'() {
         given:
-        RedisClient client = new RedisClient("127.0.0.1",6379)
-        def cart = new Cart(name:'cart', id:1)
-        def future = provider.save(cart)
-
-//        expect:
-//        future.isDone() == true
-    }
-
-    void 'should get cart from redis' () {
-        given:
-        RedisClient client = RedisClient.create("redis://localhost")
-        def cart = provider.get(1)
-
-        expect:
-        cart == ""
-    }
-
-    void 'should build an item proto' () {
-        given:
-        def item = new Item(name:'name1', id: "1", brand: "brand1", stockType: 0)
+        def item = new Item(name: 'name1', id: "1", brand: "brand1", stockType: StockType.DEMAND)
 
         def itemProto = provider.buildItem(item)
 
         expect:
         itemProto == CartProtos.Item.newBuilder().setName(item.getName()).setId(item.getId())
-                .setBrand(item.getBrand()).setStockType(CartProtos.Item.StockTypes.forNumber(item.getStockType())).build()
+                .setBrand(item.getBrand()).setStockType(CartProtos.Item.StockTypes.forNumber(item.getStockType().code)).build()
     }
 
-    void 'should build a cart proto' () {
+    void 'should build a cart proto'() {
         given:
-        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: StockType.REMOTE)
-        def cart = new Cart(name:'cart', id:123)
+        def item1 = new Item(name: 'name1', id: "1", brand: "brand1", stockType: StockType.REMOTE)
+        def cart = new Cart(name: 'cart', id: 123)
         cart.items = [item1]
         def cartProto = provider.buildCartProto(cart)
 
         expect:
-        cartProto ==  CartProtos.Cart.newBuilder().setName(cart.name).setId(cart.id)
-        .addItems(CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
+        cartProto == CartProtos.Cart.newBuilder().setName(cart.name).setId(cart.id)
+                .addItems(CartProtos.Item.newBuilder().setName(item1.getName()).setId(item1.getId())
                 .setBrand(item1.getBrand()).setStockType(CartProtos.Item.StockTypes.forNumber(item1.getStockType().code)).build()).build()
     }
 
-    void 'should build cartProto with items' () {
+    void 'should build cartProto with items'() {
         given:
-        def item1 = new Item(name:'name1', id: "1", brand: "brand1", stockType: StockType.DEMAND)
-        def item2 = new Item(name:'name2', id: "2", brand: "brand2", stockType: StockType.REMOTE)
-        def cart = new Cart(name:'cart', id:123)
+        def item1 = new Item(name: 'name1', id: "1", brand: "brand1", stockType: StockType.DEMAND)
+        def item2 = new Item(name: 'name2', id: "2", brand: "brand2", stockType: StockType.REMOTE)
+        def cart = new Cart(name: 'cart', id: 123)
         cart.items = [item1, item2]
 
         CartProtos.Cart cartProto = provider.buildCartProto(cart)

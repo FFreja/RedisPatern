@@ -19,14 +19,14 @@ class CartResource {
 
     @POST
     @ApiOperation('Create cart cache')
-    def createCart(Cart cart){
+    def createCart(Cart cart) {
         provider.save(cart)
     }
 
     @GET
     @Path('/{id}')
     @ApiOperation('Get cart info from cache by id')
-    def getCart(@PathParam('id')int  id) {
+    def getCart(@PathParam('id') int id) {
         provider.get(id)
     }
 
