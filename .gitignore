@@ -4,3 +4,4 @@ build
 .gradle
 .DS_Store
 logs/
+src/main/java/

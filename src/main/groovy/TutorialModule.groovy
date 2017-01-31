@@ -5,6 +5,7 @@ import com.google.inject.Provides
 import com.google.inject.name.Named
 import com.lambdaworks.redis.RedisClient
 import com.lambdaworks.redis.RedisURI
+import io.dropwizard.Configuration
 import io.dropwizard.setup.Environment
 import lectture.Provider.CartLettuceProvider
 
@@ -45,6 +46,6 @@ class TutorialModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(TutorialConfig).toInstance(config)
+        bind(Configuration.class).toInstance(TutorialConfig.class)
     }
 }

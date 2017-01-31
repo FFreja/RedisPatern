@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType
 class CartResource {
 
     @Inject
-    CartProvider provider = new CartProvider()
+    CartProvider provider
 
     @POST
     @ApiOperation('Create cart cache')

@@ -26,6 +26,9 @@ dependencies {
 
     def dropwizardVersion = '1.0.2'
     compile group: 'io.dropwizard', name: 'dropwizard-core', version: dropwizardVersion
+    // https://mvnrepository.com/artifact/io.dropwizard.metrics/metrics-core
+    compile group: 'io.dropwizard.metrics', name: 'metrics-core', version: '3.1.2'
+    compile group: 'io.dropwizard.metrics', name: 'metrics-healthchecks', version: '3.1.2'
     // https://mvnrepository.com/artifact/biz.paluch.redis/lettuce
     compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.3.0.Final'
     compile group: 'redis.clients', name: 'jedis', version: '2.9.0'

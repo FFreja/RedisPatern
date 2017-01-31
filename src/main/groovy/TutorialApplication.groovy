@@ -1,3 +1,4 @@
+import com.codahale.metrics.health.HealthCheck
 import com.google.inject.Guice
 import com.google.inject.Injector
 import io.dropwizard.Application
@@ -18,6 +19,8 @@ class TutorialApplication extends Application<TutorialConfig> {
     void run(TutorialConfig configuration, Environment environment) throws Exception {
         Injector injector = Guice.createInjector(new TutorialModule(configuration, environment))
         environment.jersey().register(injector.getInstance(CartResource))
+        environment.healthChecks().register("redis", injector.getInstance(RedisHealthCheck))
+        environment.lifecycle().manage(injector.getInstance(RedisClientManager))
     }
 
     @Override
